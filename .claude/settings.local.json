@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp *)",
+      "PowerShell(claude mcp add figma@claude-plugins-official 2>&1)",
+      "PowerShell(npx claude --version 2>&1)",
+      "PowerShell(node -e \"require\\('child_process'\\).exec\\('where claude', \\(e,o\\) => console.log\\(o||e.message\\)\\)\" 2>&1)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Gestão SWOT HUB\\\\AppData\\\\Local\" -Directory -ErrorAction SilentlyContinue | Select-Object Name | Where-Object { $_.Name -match \"claude|anthropic\" -or $_.Name -match \"Claude|Anthropic\" })",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Gestão SWOT HUB\\\\.vscode\\\\extensions\" -Directory -ErrorAction SilentlyContinue | Select-Object Name | Where-Object { $_.Name -match \"anthropic|claude\" })",
+      "PowerShell(claude mcp list 2>&1)",
+      "Bash(\"/c/Users/Gestão SWOT HUB/AppData/Roaming/npm/claude\" mcp list)",
+      "Bash(npx --version)",
+      "Bash(npx -y figma-developer-mcp --help)",
+      "Bash(npm install *)",
+      "Bash(\"/c/Program Files/nodejs/node.exe\" \"/c/Users/Gestão SWOT HUB/AppData/Roaming/npm/node_modules/figma-developer-mcp/dist/bin.js\" --figma-api-key=test)",
+      "Bash(kill %1)",
+      "Bash(wait)",
+      "Bash(\"/c/Program Files/nodejs/node.exe\" \"/c/Users/Gestão SWOT HUB/AppData/Roaming/npm/node_modules/figma-developer-mcp/dist/bin.js\" --help)",
+      "WebFetch(domain:tntfitacademia.com.br)",
+      "Bash(mkdir -p \"d:/Clientes/TNTFIT/Sites/Unidades/assets/css\")",
+      "Bash(mkdir -p \"d:/Clientes/TNTFIT/Sites/Unidades/assets/img\")",
+      "Bash(cp \"d:/Clientes/TNTFIT/Sites/taste-skill-main/taste-skill-main/assets/img/favicon.png\" \"d:/Clientes/TNTFIT/Sites/Unidades/assets/img/favicon.png\")",
+      "Bash(where uvx *)",
+      "Bash(\"/c/Users/Gestão SWOT HUB/AppData/Roaming/npm/claude\" mcp add html-to-design -s user --transport http \"https://h2d-mcp.divriots.com/14c292d1-b9b6-446f-bebf-d0e50c0eeac4/mcp\")",
+      "Bash(\"/c/Program Files/nodejs/npx.cmd\" serve \"d:/Clientes/TNTFIT/Sites\" -p 3456 --no-clipboard)",
+      "mcp__html-to-design__import-url",
+      "mcp__html-to-design__import-html",
+      "mcp__figma__get_figma_data"
+    ]
+  }
+}
