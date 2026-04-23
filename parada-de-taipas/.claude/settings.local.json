@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(d:/Clientes/TNTFIT/Sites/taste-skill-main/**)"
+    ]
+  }
+}
