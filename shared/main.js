@@ -1,5 +1,8 @@
-// ── COUNTDOWN ──────────────────────────────────────────────
-const countdownTarget = new Date('2026-04-10T23:59:00');
+// ── CONFIG ──────────────────────────────────────────────────
+const cfg = (typeof UNIT !== 'undefined') ? UNIT : {};
+
+// ── COUNTDOWN ──────────────────────────────────────────────────
+const countdownTarget = cfg.countdown ? new Date(cfg.countdown) : new Date('2026-04-10T23:59:00');
 
 function formatUnit(value) {
   return String(Math.floor(value)).padStart(2, '0');
@@ -208,3 +211,36 @@ makeCarousel('modCarousel', 'modDots', null, null, '.mc');
     { passive: true }
   );
 })();
+
+// ── UNIT CONFIG: INJECT DATA ─────────────────────────────────
+if (cfg.whatsapp) {
+  document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
+    a.href = a.href.replace(/wa\.me\/\d+/, 'wa.me/' + cfg.whatsapp);
+  });
+}
+
+if (cfg.modalities && cfg.modalities.length) {
+  const track = document.querySelector('.mq-track');
+  if (track) {
+    const arr = cfg.modalities;
+    const repeated = [...arr, ...arr, ...arr, ...arr];
+    track.innerHTML = repeated.map(m => `<span class="mq-item">${m} <span>&#10022;</span></span>`).join('');
+  }
+}
+
+if (cfg.hours) {
+  const hrs = document.querySelector('.hrs');
+  if (hrs) {
+    hrs.innerHTML =
+      `<div class="hr-item"><div class="hd">Seg–Sex</div><div class="ht">${cfg.hours.weekday}</div></div>` +
+      `<div class="hr-item"><div class="hd">Sábado</div><div class="ht">${cfg.hours.saturday}</div></div>` +
+      `<div class="hr-item"><div class="hd">Domingo</div><div class="ht">${cfg.hours.sunday}</div></div>`;
+  }
+  document.querySelectorAll('.fi').forEach(fi => {
+    const q = fi.querySelector('.fq');
+    if (q && q.textContent.toLowerCase().includes('horário')) {
+      const p = fi.querySelector('.fa p');
+      if (p) p.textContent = `Seg a Sex: ${cfg.hours.weekday} — Sábado: ${cfg.hours.saturday} — Domingo: ${cfg.hours.sunday}.`;
+    }
+  });
+}
