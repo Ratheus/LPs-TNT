@@ -1,0 +1,4 @@
+.hero-bg{background-image:url('../img/mobile-v3.webp')}
+@media(min-width:768px){
+  .hero-bg{background-image:url('../img/desktop-v3.webp')}
+}
